@@ -8,11 +8,13 @@ window.addEventListener('scroll', () => {
         header.style.padding = '10px 0';
         header.style.position = 'fixed';
         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        header.style.zIndex = '9999';
     } else {
         header.style.background = 'transparent';
         header.style.padding = '20px 0';
         header.style.position = 'absolute';
         header.style.boxShadow = 'none';
+        header.style.zIndex = '1000';
     }
 });
 
@@ -33,3 +35,12 @@ document.querySelectorAll('section').forEach(section => {
     section.classList.add('fade-in');
     observer.observe(section);
 });
+
+// Handle Hero Reset Button Click
+const resetBtn = document.getElementById('reset-btn');
+if (resetBtn) {
+    resetBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.reload();
+    });
+}
